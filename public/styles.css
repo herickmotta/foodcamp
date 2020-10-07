@@ -2,7 +2,7 @@ body{
     background:#EEEEEE;
     width: 100vw;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
+    
 }
 
 .topBar{
@@ -21,7 +21,7 @@ body{
     height: 80px;
     background: #FFF;
     position: fixed;
-    bottom:0;
+    bottom:0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,13 +63,14 @@ section{
     margin-bottom: 20px;
 }
 ul{
+    width: 100%;
     display:flex;
     overflow: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 li{
-    width: 200px;
+    width: 180px;
     height: 250px;
     background: #FFF;
     margin: 10px 10px;
@@ -79,13 +80,13 @@ li{
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 5px;
-    
+    position:relative;
 }
 
 li img{
-    height: 100px;
+    width: 100%;
     border-radius: 5px;
 }
 li h3{
@@ -97,7 +98,38 @@ li p,li h4{
     color:#333;
     font-size: 18px;
 }
+li h4{
+    font-weight: bold;
+}
 
 .selected{
     border-color: #6dcb77;
+}
+
+.count{
+    position: absolute;
+    color: #333;
+    bottom:0;
+    right:0;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75px;
+}
+
+.count button{
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 26px;
+    display: block;
+}
+
+.increment{
+    color: #6dcb77;
+}
+.decrement{
+    color:red;
 }

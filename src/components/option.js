@@ -9,6 +9,11 @@ export default function Option(props){
             <h3>{optionTitle}</h3>
             <p>{optionDescription}</p>
             <h4>R$ {price}</h4>
+            <div className="count">
+                <button className="decrement">-</button>
+                <span>0</span>
+                <button className="increment">+</button>
+            </div>
         </li>
     );
 };

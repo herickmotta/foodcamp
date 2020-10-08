@@ -1,26 +1,19 @@
 import * as React from 'react';
 
 export default function Option(props){
-    var {imageSrc,optionTitle, optionDescription, price,className,setClassName,countClass,setCountClass,count,setCount} = props;
+    var {product,increment,decrement} = props;
     return (
-        <li className={className} onClick={(event) => {setClassName('selected'); setCountClass('count')}}>
-            <img src={imageSrc} />
-            <h3>{optionTitle}</h3>
-            <p>{optionDescription}</p>
-            <h4>R$ {price}</h4>
-            <div className={countClass}>
-                <button className="decrement" onClick={(event) => decrement(event)}>-</button>
-                <span>{count}</span>
-                <button className="increment" onClick={()=>setCount(count+1)}>+</button>
+        <li className={product.quantity > 0?'selected':''}>
+            <img src={product.imageSrc} />
+            <h3>{product.optionTitle}</h3>
+            <p>{product.optionDescription}</p>
+            <h4>R$ {product.price}</h4>
+            <div className='count'>
+                <button className="decrement" onClick={()=>decrement(product)}>-</button>
+                <span>{product.quantity}</span>
+                <button className="increment" onClick={()=>increment(product)}>+</button>
             </div>
         </li>
     );
-    function decrement(event){
-        if(count>1) setCount(count-1);
-        else{
-            event.stopPropagation();
-            setClassName('');
-            setCountClass('count hidden');
-        };
-    }
+    
 };

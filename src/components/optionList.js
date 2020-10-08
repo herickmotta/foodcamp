@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Option from './option';
 export default function OptionList(props){
-    var {listTitle} = props
+    var {listTitle,arrayHeader} = props
     var foods = [
         {
             imageSrc:"../../public/img/batata-frita-final.jpg",
@@ -60,31 +60,56 @@ export default function OptionList(props){
             price:"5,50" 
         }];
     
-    switch(listTitle){
-        case 'foods':
-            var returnArray = foods.map(element => Option(element) );
-            var arrayHeader = 'Primeiro, seu prato';
-            break;
-        case 'drinks':
-            var returnArray = drinks.map(element => Option(element) );
-            var arrayHeader = 'Agora, sua bebida';
-            break;
-        case 'desserts':
-            var returnArray = desserts.map(element => Option(element) );
-            var arrayHeader = 'Por fim, sua sobremesa';
-    }
     
+    var returnArray = stringToArray(listTitle);
 
-
+    returnArray.forEach(element => {
+        var [className, setClassName] = React.useState(''); 
+        var [countClass, setCountClass] = React.useState('count hidden');
+        var [count,setCount] = React.useState(1);
+        element.className = className;
+        element.setClassName = setClassName;
+        element.countClass = countClass;
+        element.setCountClass = setCountClass;
+        element.count = count;
+        element.setCount = setCount;
+    });
+    
+            
     return (
         <section>
             <h2>{arrayHeader}</h2>
             <ul>
-                {returnArray}
+                {returnArray.map((li) => 
+                    <Option 
+                        imageSrc={li.imageSrc} 
+                        optionTitle={li.optionTitle} 
+                        optionDescription={li.optionDescription} 
+                        price={li.price} 
+                        className={li.className} 
+                        setClassName={li.setClassName}
+                        countClass={li.countClass}
+                        setCountClass={li.setCountClass}
+                        count={li.count}
+                        setCount={li.setCount}
+                    />
+                )}
             </ul>
         </section>
     );
+
+    function stringToArray(string){
+        switch(string){
+            case 'foods':
+                return foods;
+            case 'drinks':
+                return drinks;
+            case 'desserts':
+                return desserts;
+        }
+    }
 };
 
+    
 
 

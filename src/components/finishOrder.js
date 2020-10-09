@@ -3,7 +3,6 @@ import TopBar from './topBar';
 import ReviseOrder from './reviseOrder';
 import { Link } from 'react-router-dom';
 export default function FinishOrder(props){
-    console.log(props.selectedItems);
     var url = encodeURIComponent(`Olá, gostaria de fazer o pedido:`);
     var totalPrice = 0.0;
     props.selectedItems.forEach(item =>{

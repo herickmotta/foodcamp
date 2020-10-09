@@ -7,8 +7,6 @@ var selectedItems;
 function getParams(params){  
   selectedItems = params;
 };
-
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

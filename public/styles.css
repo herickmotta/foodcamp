@@ -12,7 +12,7 @@ body{
     position: fixed;
     top:0;
     padding:10px;
-    z-index: 1;
+    z-index: 3;
     text-align: start;
     box-shadow: 0px 0px 10px 0px rgba(133,133,133,1);
 }
@@ -30,7 +30,7 @@ body{
     box-shadow: 0px 0px 10px 0px rgba(133,133,133,1);
 }
 
-.closeOrder{
+.closeOrder,.finish{
     width: 90%;
     background: #CBCBCB;
     border:none;
@@ -71,7 +71,7 @@ ul{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-li{
+li,.reviseBox{
     width: 180px;
     height: 250px;
     background: #FFF;
@@ -86,6 +86,11 @@ li{
     padding: 5px;
     position:relative;
     box-shadow: 0px 0px 10px 0px rgba(133,133,133,1);
+}
+
+.reviseBox{
+    width: 90%;
+    height: initial;
 }
 
 li img{
@@ -144,4 +149,35 @@ li h4{
 
 button:focus{
     outline: none;
+}
+
+.finishOrder{
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    position: fixed;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+.revise{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finish{
+    background: #6dcb77;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.ordered{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }

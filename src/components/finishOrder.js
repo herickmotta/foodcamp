@@ -19,7 +19,7 @@ export default function FinishOrder(props){
                 <h2>Revise seu pedido</h2>
                 <div className="reviseBox">
                     {props.selectedItems.map(item => <ReviseOrder item={item}/>)}
-                    <div className="ordered">
+                    <div className="ordered total">
                         <div>Total:</div> 
                         <div>R${totalPrice.toFixed(2)}</div>
                     </div>
